@@ -53,7 +53,7 @@ Z = np.zeros_like(s, dtype=np.complex128)
 for i in range(s.shape[0]):
     for j in range(s.shape[1]):
         Z[i, j] = zeta(s[i, j])
-        if np.real(Z[i, j]) <= 0.00000000001:
+        if np.real(Z[i, j]) < 0.00000000001:
             nbim+=1
             mim += np.real(s[i, j])
 
@@ -63,7 +63,7 @@ print(mim, nbim)
 # Créer la nouvelle colormap personnalisée avec la transformation non linéaire
 cmap, cmap_transform = custom_cmap()
 
-zero_points = np.where(np.abs(np.real(Z)) == 0.00000000001)
+zero_points = np.where(np.abs(np.real(Z)) < 0.00000000001)
 
 # Appliquer la transformation non linéaire à la partie réelle de Z
 Z_real_transformed = cmap_transform(np.real(Z))
