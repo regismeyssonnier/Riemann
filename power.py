@@ -9,4 +9,4 @@ n = 2
 s = 1 + 2j  # s est un nombre complexe
 
 result = complex_power(n, s)
-print(f"{n}^{s} =", result)
+print(f"{n}^{s} =", result, n**s)
